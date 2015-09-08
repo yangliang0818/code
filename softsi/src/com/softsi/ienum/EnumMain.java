@@ -22,6 +22,7 @@ public class EnumMain {
         Day.getInstance("").doSomeThing("默认情况");
         Day.getInstance("sun").doSomeThing("我从星期天编程星期五了");
         Day.getInstance("sun").doSomeThing("我从星期天编程星期四了");
+        Day.getInstance("sun").doSomeThing("我从星期天编程星期三了");
     }
 
     private static Map<String, Day> dayMap = new HashMap<String, Day>();
