@@ -23,19 +23,22 @@ public class EnumMain {
         Day.getInstance("sun").doSomeThing("我从星期天编程星期五了");
         Day.getInstance("sun").doSomeThing("我从星期天编程星期四了");
     }
-    private static Map<String,Day> dayMap = new HashMap<String, Day>();
+
+    private static Map<String, Day> dayMap = new HashMap<String, Day>();
+
     enum Day {
         星期天("sun") {
             String name;
+
             @Override
             void doSomeThing(String name) {
-                this.name=name;
+                this.name = name;
                 System.out.println(name);
                 System.out.println("星期天在家休息");
             }
 
             public String getName() {
-                System.out.println("name==="+name);
+                System.out.println("name===" + name);
                 return name;
             }
         }, 星期五("fri") {
@@ -43,22 +46,26 @@ public class EnumMain {
             void doSomeThing(String name) {
                 System.out.println("红色星期五，收拾心情过周末");
             }
-        },默认情况("其他情况"){
+        }, 默认情况("其他情况") {
             @Override
             void doSomeThing(String name) {
             }
         };
         String code;
+
         Day(String code) {
             this.code = code;
             dayMap.put(code, this);
         }
+
         public String getName() {
             return "";
         }
+
         abstract void doSomeThing(String name);
-        public static Day getInstance(String code){
-            return null ==dayMap.get(code) ?默认情况:dayMap.get(code);
+
+        public static Day getInstance(String code) {
+            return null == dayMap.get(code) ? 默认情况 : dayMap.get(code);
         }
     }
 }
